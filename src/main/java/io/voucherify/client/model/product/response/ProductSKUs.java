@@ -14,9 +14,9 @@ import java.util.List;
 @ToString
 public class ProductSKUs {
 
-  private String object;
+    private String object;
 
-  private Integer total;
+    private Integer total;
 
-  private List<SKUResponse> data;
+    private List<SKUResponse> data;
 }

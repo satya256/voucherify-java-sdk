@@ -15,14 +15,14 @@ import java.util.Date;
 @ToString
 public class BusinessValidationRule {
 
-  private String name;
+    private String name;
 
-  private String id;
+    private String id;
 
-  private Json rules;
+    private Json rules;
 
-  private String object;
+    private String object;
 
-  private Date createdAt;
+    private Date createdAt;
 }
 

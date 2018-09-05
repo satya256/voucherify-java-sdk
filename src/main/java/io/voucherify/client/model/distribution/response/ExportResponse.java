@@ -16,23 +16,21 @@ import java.util.Map;
 @ToString
 public class ExportResponse {
 
-  private String id;
+    private String id;
 
-  private String object;
+    private String object;
 
-  @JsonProperty("created_at")
-  private Date createdAt;
+    @JsonProperty("created_at")
+    private Date createdAt;
 
-  private String channel;
+    private String channel;
 
-  private ExportStatus status;
+    private ExportStatus status;
 
-  @JsonProperty("exported_object")
-  private String exportedObject;
+    @JsonProperty("exported_object")
+    private String exportedObject;
 
-  private Map<String, Object> parameters;
+    private Map<String, Object> parameters;
 
-  private Map<String, Object> result;
-
+    private Map<String, Object> result;
 }
-

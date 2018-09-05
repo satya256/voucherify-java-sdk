@@ -17,6 +17,6 @@ import java.util.List;
 @ToString
 public class Promotion {
 
-  @Singular("tier")
-  private List<Tier> tiers;
+    @Singular("tier")
+    private List<Tier> tiers;
 }

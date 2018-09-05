@@ -17,12 +17,12 @@ import java.util.Map;
 @ToString
 public class Tier {
 
-  private String name;
+    private String name;
 
-  private String banner;
+    private String banner;
 
-  private Map<String, Object> action;
+    private Map<String, Object> action;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

@@ -21,48 +21,48 @@ import java.util.Map;
 @ToString
 public class ListPublicationsFilter extends AbstractFilter<String, Object> {
 
-  private Integer limit;
+    private Integer limit;
 
-  private Integer page;
+    private Integer page;
 
-  private ListPublicationsOrder order;
+    private ListPublicationsOrder order;
 
-  private String campaign;
+    private String campaign;
 
-  private String voucher;
+    private String voucher;
 
-  private String result;
+    private String result;
 
-  private VoucherType voucherType;
+    private VoucherType voucherType;
 
-  private Boolean isReferralCode;
+    private Boolean isReferralCode;
 
-  @Singular("filter")
-  private List<ListPublicationsFilters> filters;
+    @Singular("filter")
+    private List<ListPublicationsFilters> filters;
 
-  @Override
-  public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<String, Object>();
-    map.put("limit", limit);
-    map.put("page", page);
-    map.put("order", order != null ? order.getValue() : null);
-    map.put("campaign", campaign);
-    map.put("voucher", voucher);
-    map.put("result", result);
-    map.put("voucher_type", voucherType);
-    map.put("is_referral_code", isReferralCode);
-    attachFilters(map);
+    @Override
+    public Map<String, Object> getMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("limit", limit);
+        map.put("page", page);
+        map.put("order", order != null ? order.getValue() : null);
+        map.put("campaign", campaign);
+        map.put("voucher", voucher);
+        map.put("result", result);
+        map.put("voucher_type", voucherType);
+        map.put("is_referral_code", isReferralCode);
+        attachFilters(map);
 
-    return map;
-  }
-
-  private void attachFilters(Map<String, Object> map) {
-    if (filters == null || filters.isEmpty()) {
-      return;
+        return map;
     }
 
-    for (ListPublicationsFilters filter : filters) {
-      map.put(filter.buildFilterParam(), filter.getValue());
+    private void attachFilters(Map<String, Object> map) {
+        if (filters == null || filters.isEmpty()) {
+            return;
+        }
+
+        for (ListPublicationsFilters filter : filters) {
+            map.put(filter.buildFilterParam(), filter.getValue());
+        }
     }
-  }
 }

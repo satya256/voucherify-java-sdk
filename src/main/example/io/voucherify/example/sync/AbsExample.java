@@ -4,11 +4,11 @@ import io.voucherify.client.VoucherifyClient;
 
 public abstract class AbsExample {
 
-  protected VoucherifyClient client;
+    protected VoucherifyClient client;
 
-  AbsExample(VoucherifyClient client) {
-    this.client = client;
-  }
+    AbsExample(VoucherifyClient client) {
+        this.client = client;
+    }
 
-  public abstract void example();
+    public abstract void example();
 }

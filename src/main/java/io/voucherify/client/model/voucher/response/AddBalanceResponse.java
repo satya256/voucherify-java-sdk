@@ -14,13 +14,12 @@ import lombok.ToString;
 @ToString
 public class AddBalanceResponse {
 
-  private Integer amount;
+    private Integer amount;
 
-  private String object;
+    private String object;
 
-  private VoucherType type;
+    private VoucherType type;
 
-  @JsonProperty("related_object")
-  private RelatedObject relatedObject;
-
+    @JsonProperty("related_object")
+    private RelatedObject relatedObject;
 }

@@ -15,8 +15,8 @@ import lombok.ToString;
 @ToString
 public class CreateBusinessValidationRule {
 
-  private String name;
+    private String name;
 
-  @Builder.Default
-  private Json rules = Json.builder().build();
+    @Builder.Default
+    private Json rules = Json.builder().build();
 }

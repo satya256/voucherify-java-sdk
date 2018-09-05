@@ -1,5 +1,6 @@
 package io.voucherify.client.model.distribution;
 
+import io.voucherify.client.model.customer.Customer;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Singular;
 import lombok.ToString;
-import io.voucherify.client.model.customer.Customer;
 
 import java.util.Map;
 
@@ -18,15 +18,14 @@ import java.util.Map;
 @ToString
 public class PublishVoucher {
 
-  private String campaign;
+    private String campaign;
 
-  private String voucher;
+    private String voucher;
 
-  private Customer customer;
+    private Customer customer;
 
-  private String channel;
+    private String channel;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
-
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

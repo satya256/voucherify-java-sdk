@@ -19,18 +19,18 @@ import java.util.Map;
 @ToString
 public class Product {
 
-  private String id;
+    private String id;
 
-  private String name;
+    private String name;
 
-  private Integer price;
+    private Integer price;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
-  @Singular("attribute")
-  private List<String> attributes;
+    @Singular("attribute")
+    private List<String> attributes;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

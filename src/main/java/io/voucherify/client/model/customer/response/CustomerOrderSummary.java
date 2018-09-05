@@ -15,19 +15,18 @@ import java.util.Date;
 @ToString
 public class CustomerOrderSummary {
 
-  @JsonProperty("total_amount")
-  private Integer totalAmount;
+    @JsonProperty("total_amount")
+    private Integer totalAmount;
 
-  @JsonProperty("total_count")
-  private Integer totalCount;
+    @JsonProperty("total_count")
+    private Integer totalCount;
 
-  @JsonProperty("average_amount")
-  private Integer averageAmount;
+    @JsonProperty("average_amount")
+    private Integer averageAmount;
 
-  @JsonProperty("last_order_amount")
-  private Integer lastOrderAmount;
+    @JsonProperty("last_order_amount")
+    private Integer lastOrderAmount;
 
-  @JsonProperty("last_order_date")
-  private Date lastOrderDate;
-
+    @JsonProperty("last_order_date")
+    private Date lastOrderDate;
 }

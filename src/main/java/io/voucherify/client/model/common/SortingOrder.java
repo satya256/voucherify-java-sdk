@@ -5,11 +5,11 @@ import lombok.Getter;
 @Getter
 public enum SortingOrder {
 
-  ASC(""), DESC("-");
+    ASC(""), DESC("-");
 
-  private final String sorting;
+    private final String sorting;
 
-  SortingOrder(String sorting) {
-    this.sorting = sorting;
-  }
+    SortingOrder(String sorting) {
+        this.sorting = sorting;
+    }
 }

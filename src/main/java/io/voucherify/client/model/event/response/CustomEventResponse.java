@@ -12,8 +12,7 @@ import lombok.ToString;
 @ToString
 public class CustomEventResponse {
 
-  private String object;
+    private String object;
 
-  private String type;
-
+    private String type;
 }

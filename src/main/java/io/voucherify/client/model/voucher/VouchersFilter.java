@@ -20,58 +20,58 @@ import java.util.Map;
 @ToString
 public class VouchersFilter extends AbstractFilter<String, Object> {
 
-  private Integer limit;
+    private Integer limit;
 
-  private Integer page;
+    private Integer page;
 
-  private String category;
+    private String category;
 
-  private String campaign;
+    private String campaign;
 
-  private String customer;
+    private String customer;
 
-  private VoucherOrder order;
+    private VoucherOrder order;
 
-  @Singular("filter")
-  private List<Filter> filters;
+    @Singular("filter")
+    private List<Filter> filters;
 
-  @Override
-  public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<String, Object>();
-    map.put("limit", limit);
-    map.put("page", page);
-    map.put("category", category);
-    map.put("campaign", campaign);
-    map.put("customer", customer);
-    map.put("order", order != null ? order.asQueryParam() : order);
+    @Override
+    public Map<String, Object> getMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("limit", limit);
+        map.put("page", page);
+        map.put("category", category);
+        map.put("campaign", campaign);
+        map.put("customer", customer);
+        map.put("order", order != null ? order.asQueryParam() : order);
 
-    if (filters != null) {
-      for (Filter filter : filters) {
-        if (filter != null) {
-          map.put(filter.asKey(), filter.getValue());
+        if (filters != null) {
+            for (Filter filter : filters) {
+                if (filter != null) {
+                    map.put(filter.asKey(), filter.getValue());
+                }
+            }
         }
-      }
+
+        return map;
     }
 
-    return map;
-  }
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    @Getter
+    @Builder
+    @ToString
+    public static class Filter {
 
-  @NoArgsConstructor(access = AccessLevel.PRIVATE)
-  @AllArgsConstructor(access = AccessLevel.PRIVATE)
-  @Getter
-  @Builder
-  @ToString
-  public static class Filter {
+        private String fieldName;
 
-    private String fieldName;
+        private String condition;
 
-    private String condition;
+        private Object value;
 
-    private Object value;
+        String asKey() {
+            return "[filters][" + this.fieldName + "][conditions][" + this.condition + "]";
+        }
 
-    String asKey() {
-      return "[filters][" + this.fieldName + "][conditions][" + this.condition + "]";
     }
-
-  }
 }

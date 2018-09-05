@@ -19,10 +19,10 @@ import java.util.Map;
 @ToString
 public class RedeemPromotion {
 
-  private Customer customer;
+    private Customer customer;
 
-  private Order order;
+    private Order order;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

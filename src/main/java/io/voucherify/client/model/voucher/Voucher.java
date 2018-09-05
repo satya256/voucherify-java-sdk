@@ -20,46 +20,45 @@ import java.util.Map;
 @ToString
 public class Voucher {
 
-  private String code;
+    private String code;
 
-  private String campaign;
+    private String campaign;
 
-  private String category;
+    private String category;
 
-  private VoucherType type;
+    private VoucherType type;
 
-  private Discount discount;
+    private Discount discount;
 
-  private Gift gift;
+    private Gift gift;
 
-  @JsonProperty("start_date")
-  private Date startDate;
+    @JsonProperty("start_date")
+    private Date startDate;
 
-  @JsonProperty("expiration_date")
-  private Date expirationDate;
+    @JsonProperty("expiration_date")
+    private Date expirationDate;
 
-  private VoucherRedemption redemption;
+    private VoucherRedemption redemption;
 
-  private Boolean active;
+    private Boolean active;
 
-  @JsonProperty("additional_info")
-  private String additionalInfo;
+    @JsonProperty("additional_info")
+    private String additionalInfo;
 
-  @Singular("metadataEntry")
-  @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private Map<String, Object> metadata;
 
-  @Singular("asset")
-  @JsonInclude(JsonInclude.Include.NON_EMPTY)
-  private Map<String, Object> assets;
+    @Singular("asset")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private Map<String, Object> assets;
 
-  @JsonProperty("is_referral_code")
-  private Boolean isReferralCode;
+    @JsonProperty("is_referral_code")
+    private Boolean isReferralCode;
 
-  @JsonProperty("referrer_id")
-  private String referrerId;
+    @JsonProperty("referrer_id")
+    private String referrerId;
 
-  @JsonProperty("updated_at")
-  private Date updatedAt;
-
+    @JsonProperty("updated_at")
+    private Date updatedAt;
 }

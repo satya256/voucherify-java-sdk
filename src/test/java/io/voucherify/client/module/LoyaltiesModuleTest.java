@@ -1,8 +1,8 @@
 package io.voucherify.client.module;
 
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import okhttp3.mockwebserver.RecordedRequest;
 import org.junit.Test;
 
 import io.voucherify.client.model.campaign.CampaignType;
@@ -88,9 +88,9 @@ public class LoyaltiesModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldListLoyaltyCampaigns() throws Exception {
+  public void shouldListLoyaltyCampaigns() {
     // given
-    enqueueResponse("[{\"name\" : \"campaign\"}]");
+    enqueueResponse("{\"campaigns\": [{\"name\" : \"campaign\"}]}");
 
     CampaignsFilter filter = CampaignsFilter.builder()
             .limit(10)

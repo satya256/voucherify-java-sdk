@@ -18,24 +18,24 @@ import java.util.Map;
 @ToString
 public class CreateOrderResponse {
 
-  private String id;
+    private String id;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
-  private String object;
+    private String object;
 
-  private Integer amount;
+    private Integer amount;
 
-  @JsonProperty("created_at")
-  private Date createdAt;
+    @JsonProperty("created_at")
+    private Date createdAt;
 
-  @JsonProperty("updated_at")
-  private Date updatedAt;
+    @JsonProperty("updated_at")
+    private Date updatedAt;
 
-  private List<OrderItemResponse> items;
+    private List<OrderItemResponse> items;
 
-  private OrderStatus status;
+    private OrderStatus status;
 
-  private Map<String, Object> metadata;
+    private Map<String, Object> metadata;
 }

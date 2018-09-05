@@ -19,23 +19,23 @@ import java.util.Date;
 @ToString
 public class RedeemVoucherResponse {
 
-  private String id;
+    private String id;
 
-  private String object;
+    private String object;
 
-  private Date date;
+    private Date date;
 
-  @JsonProperty("customer_id")
-  private String customerId;
+    @JsonProperty("customer_id")
+    private String customerId;
 
-  @JsonProperty("tracking_id")
-  private String trackingId;
+    @JsonProperty("tracking_id")
+    private String trackingId;
 
-  private OrderResponse order;
+    private OrderResponse order;
 
-  private RedemptionStatus result;
+    private RedemptionStatus result;
 
-  private VoucherResponse voucher;
+    private VoucherResponse voucher;
 
-  private Reward reward;
+    private Reward reward;
 }

@@ -18,13 +18,12 @@ import java.util.Map;
 @ToString
 public class CustomEvent {
 
-  private String event;
+    private String event;
 
-  private Customer customer;
+    private Customer customer;
 
-  private Referral referral;
+    private Referral referral;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
-
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

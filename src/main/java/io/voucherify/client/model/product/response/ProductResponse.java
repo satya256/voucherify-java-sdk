@@ -17,21 +17,21 @@ import java.util.Map;
 @ToString
 public class ProductResponse {
 
-  private String id;
+    private String id;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
-  private String object;
+    private String object;
 
-  private String name;
+    private String name;
 
-  private List<String> attributes;
+    private List<String> attributes;
 
-  private Map<String, Object> metadata;
+    private Map<String, Object> metadata;
 
-  @JsonProperty("created_at")
-  private Date createdAt;
+    @JsonProperty("created_at")
+    private Date createdAt;
 
-  private ProductSKUs skus;
+    private ProductSKUs skus;
 }

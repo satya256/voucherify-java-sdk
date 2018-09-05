@@ -19,20 +19,19 @@ import java.util.Map;
 @ToString
 public class Order {
 
-  private String id;
+    private String id;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
-  @JsonProperty("result")
-  private OrderStatus status;
+    @JsonProperty("result")
+    private OrderStatus status;
 
-  private Integer amount;
+    private Integer amount;
 
-  @Singular("item")
-  private List<OrderItem> items;
+    @Singular("item")
+    private List<OrderItem> items;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
-
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

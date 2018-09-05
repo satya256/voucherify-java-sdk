@@ -19,17 +19,17 @@ import java.util.Map;
 @ToString
 public class CampaignImportVoucher {
 
-  private String code;
+    private String code;
 
-  private String category;
+    private String category;
 
-  private VoucherRedemption redemption;
+    private VoucherRedemption redemption;
 
-  private Boolean active;
+    private Boolean active;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 
-  @JsonProperty("additional_info")
-  private String additionalInfo;
+    @JsonProperty("additional_info")
+    private String additionalInfo;
 }

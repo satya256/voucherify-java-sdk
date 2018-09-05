@@ -1,5 +1,6 @@
 package io.voucherify.client.module;
 
+import io.reactivex.Observable;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.rewards.CreateReward;
@@ -15,7 +16,6 @@ import io.voucherify.client.model.rewards.response.RewardResponse;
 import io.voucherify.client.module.RewardsModule.ExtAsync;
 import io.voucherify.client.module.RewardsModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
-import rx.Observable;
 
 import java.util.HashMap;
 import java.util.concurrent.Executor;
@@ -27,39 +27,39 @@ public class RewardsModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     public ListRewardsResponse list(RewardsFilter filter) {
-        return api.listRewards(filter != null ? filter.asMap() : new HashMap<String, Object>());
+        return executeSyncApiCall(api.listRewards(filter != null ? filter.asMap() : new HashMap<>()));
     }
 
     public RewardResponse create(CreateReward createReward) {
-        return api.createReward(createReward);
+        return executeSyncApiCall(api.createReward(createReward));
     }
 
     public RewardResponse get(String id) {
-        return api.getReward(id);
+        return executeSyncApiCall(api.getReward(id));
     }
 
     public RewardResponse update(String id, UpdateReward updateReward) {
-        return api.updateReward(id, updateReward);
+        return executeSyncApiCall(api.updateReward(id, updateReward));
     }
 
     public void delete(String id) {
-        api.deleteReward(id);
+        executeSyncApiCall(api.deleteReward(id));
     }
 
     public ListRewardAssignmentsResponse listAssignments(String id, RewardsAssignmentsFilter filter) {
-        return api.listRewardAssignments(id, filter != null ? filter.asMap() : new HashMap<String, Object>());
+        return executeSyncApiCall(api.listRewardAssignments(id, filter != null ? filter.asMap() : new HashMap<>()));
     }
 
     public RewardAssignmentResponse createAssignment(String rewardId, CreateRewardAssignment createRewardAssignment) {
-        return api.createRewardAssignment(rewardId, createRewardAssignment);
+        return executeSyncApiCall(api.createRewardAssignment(rewardId, createRewardAssignment));
     }
 
     public RewardAssignmentResponse updateAssignment(String rewardId, String assignmentId, UpdateRewardAssignment updateRewardAssignment) {
-        return api.updateRewardAssignment(rewardId, assignmentId, updateRewardAssignment);
+        return executeSyncApiCall(api.updateRewardAssignment(rewardId, assignmentId, updateRewardAssignment));
     }
 
     public void deleteAssignment(String rewardId, String assignmentId) {
-        api.deleteRewardAssignment(rewardId, assignmentId);
+        executeSyncApiCall(api.deleteRewardAssignment(rewardId, assignmentId));
     }
 
     @Override

@@ -1,13 +1,13 @@
 package io.voucherify.client.model.redemption.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.redemption.RollbackStatus;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import io.voucherify.client.model.redemption.RollbackStatus;
 
 import java.util.Date;
 
@@ -17,21 +17,21 @@ import java.util.Date;
 @ToString
 public class RollbackRedemptionResponse {
 
-  private String id;
+    private String id;
 
-  private String object;
+    private String object;
 
-  private Date date;
+    private Date date;
 
-  @JsonProperty("customer_id")
-  private String customerId;
+    @JsonProperty("customer_id")
+    private String customerId;
 
-  @JsonProperty("tracking_id")
-  private String trackingId;
+    @JsonProperty("tracking_id")
+    private String trackingId;
 
-  private String redemption;
+    private String redemption;
 
-  private RollbackStatus status;
+    private RollbackStatus status;
 
-  private VoucherResponse voucher;
+    private VoucherResponse voucher;
 }

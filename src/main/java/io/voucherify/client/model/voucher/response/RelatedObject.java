@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString
 public class RelatedObject {
 
-  private String type;
+    private String type;
 
-  private String id;
+    private String id;
 }

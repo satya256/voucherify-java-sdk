@@ -20,7 +20,6 @@ import java.util.List;
 @JsonSerialize(using = CampaignImportVouchersSerializer.class)
 public class CampaignImportVouchers {
 
-  @Singular("voucher")
-  private List<CampaignImportVoucher> vouchers;
-
+    @Singular("voucher")
+    private List<CampaignImportVoucher> vouchers;
 }

@@ -1,8 +1,7 @@
-package io.voucherify.client.model.campaign.response;
+package io.voucherify.client.model.promotion.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.campaign.CampaignType;
-import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignmentList;
 import io.voucherify.client.model.voucher.GenerationStatus;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import lombok.AccessLevel;
@@ -18,7 +17,7 @@ import java.util.Map;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class CampaignResponse {
+public class CreatePromotionCampaignResponse {
 
     private String id;
 
@@ -28,11 +27,10 @@ public class CampaignResponse {
 
     private CampaignType type;
 
+    @JsonProperty("campaign_type")
+    private String campaignType;
+
     private String description;
-
-    private Map<String, Object> metadata;
-
-    private Integer vouchersCount;
 
     @JsonProperty("start_date")
     private Date startDate;
@@ -40,15 +38,14 @@ public class CampaignResponse {
     @JsonProperty("expiration_date")
     private Date expirationDate;
 
-    @JsonProperty("updated_at")
-    private Date updatedAt;
+    private Map<String, Object> metadata;
+
+    private Integer vouchersCount;
 
     @JsonProperty("vouchers_generation_status")
     private GenerationStatus generationStatus;
 
     private VoucherResponse voucher;
 
-    @JsonProperty("validation_rules_assignments")
-    private BusinessValidationRuleAssignmentList validationRuleAssignments;
-
+    private PromotionResponse promotion;
 }

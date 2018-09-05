@@ -1,4 +1,4 @@
-package io.voucherify.client.model.promotion.reponse;
+package io.voucherify.client.model.promotion.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -15,12 +15,12 @@ import java.util.List;
 @ToString
 public class ListPromotionTiersResponse {
 
-  private String object;
+    private String object;
 
-  private Integer total;
+    private Integer total;
 
-  @JsonProperty("data_ref")
-  private String dataRef;
+    @JsonProperty("data_ref")
+    private String dataRef;
 
-  private List<TierResponse> tiers;
+    private List<TierResponse> tiers;
 }

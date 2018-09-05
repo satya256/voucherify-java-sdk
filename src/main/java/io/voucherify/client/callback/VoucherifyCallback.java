@@ -4,18 +4,18 @@ import io.voucherify.client.error.VoucherifyError;
 
 public abstract class VoucherifyCallback<T> {
 
-  private boolean cancelled;
+    private boolean cancelled;
 
-  public abstract void onSuccess(T result);
+    public abstract void onSuccess(T result);
 
-  public void onFailure(VoucherifyError error) {}
+    public void onFailure(VoucherifyError error) {
+    }
 
-  public synchronized void cancel() {
-    this.cancelled = true;
-  }
+    public synchronized void cancel() {
+        this.cancelled = true;
+    }
 
-  public synchronized boolean isCancelled() {
-    return cancelled;
-  }
-
+    public synchronized boolean isCancelled() {
+        return cancelled;
+    }
 }

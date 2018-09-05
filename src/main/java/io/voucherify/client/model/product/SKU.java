@@ -18,16 +18,16 @@ import java.util.Map;
 @ToString
 public class SKU {
 
-  private String id;
+    private String id;
 
-  private String sku;
+    private String sku;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
-  @Singular("attribute")
-  private Map<String, Object> attributes;
+    @Singular("attribute")
+    private Map<String, Object> attributes;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

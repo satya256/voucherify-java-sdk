@@ -1,7 +1,6 @@
 package io.voucherify.client.model.customer.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.voucherify.client.model.customer.Customer;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,11 +15,10 @@ import java.util.Map;
 @ToString
 public class CustomerLoyalty {
 
-  private Integer points;
+    private Integer points;
 
-  @JsonProperty("referred_customers")
-  private Integer referredCustomers;
+    @JsonProperty("referred_customers")
+    private Integer referredCustomers;
 
-  private Map<String, CustomerCampaignLoyalty> campaigns;
-
+    private Map<String, CustomerCampaignLoyalty> campaigns;
 }

@@ -15,39 +15,40 @@ import java.util.Map;
 @ToString
 public class Json {
 
-  private Map<String, Object> json = new HashMap<String, Object>();
-
-  @JsonAnySetter
-  public void addEntry(String field, Object value) {
-    this.json.put(field, value);
-  }
-
-  public Object getEntry(String field) {
-    return this.json.get(field);
-  }
-
-  @JsonAnyGetter
-  public Map<String, Object> getMap() {
-    return json;
-  }
-
-  public static Json.JsonBuilder builder() {
-    return new Json.JsonBuilder();
-  }
-
-  public static class JsonBuilder {
-
     private Map<String, Object> json = new HashMap<String, Object>();
 
-    public JsonBuilder() {}
-
-    public JsonBuilder addEntry(String field, Object value) {
-      this.json.put(field, value);
-      return this;
+    @JsonAnySetter
+    public void addEntry(String field, Object value) {
+        this.json.put(field, value);
     }
 
-    public Json build() {
-      return new Json(this.json);
+    public Object getEntry(String field) {
+        return this.json.get(field);
     }
-  }
+
+    @JsonAnyGetter
+    public Map<String, Object> getMap() {
+        return json;
+    }
+
+    public static Json.JsonBuilder builder() {
+        return new Json.JsonBuilder();
+    }
+
+    public static class JsonBuilder {
+
+        private Map<String, Object> json = new HashMap<String, Object>();
+
+        public JsonBuilder() {
+        }
+
+        public JsonBuilder addEntry(String field, Object value) {
+            this.json.put(field, value);
+            return this;
+        }
+
+        public Json build() {
+            return new Json(this.json);
+        }
+    }
 }

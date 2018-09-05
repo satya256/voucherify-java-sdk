@@ -1,4 +1,4 @@
-package io.voucherify.client.model.promotion.reponse;
+package io.voucherify.client.model.promotion.response;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString
 public class TierSummary {
 
-  private TierSummaryRedemptions redemptions;
+    private TierSummaryRedemptions redemptions;
 
-  private TierSummaryOrders orders;
+    private TierSummaryOrders orders;
 }

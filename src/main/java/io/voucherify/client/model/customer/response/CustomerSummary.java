@@ -12,8 +12,7 @@ import lombok.ToString;
 @ToString
 public class CustomerSummary {
 
-  private CustomerRedemptionSummary redemptions;
+    private CustomerRedemptionSummary redemptions;
 
-  private CustomerOrderSummary orders;
-
+    private CustomerOrderSummary orders;
 }

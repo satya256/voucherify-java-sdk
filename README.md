@@ -53,6 +53,11 @@ API:
 
 ---
 
+## Supported JRE versions
+* 8, 9, 10
+
+---
+
 ## Setup
 
 Grab via Maven:
@@ -61,14 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>7.3.0</version>
+  <version>8.0.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:7.3.0'
-
+compile 'io.voucherify.client:voucherify-java-sdk:8.0.0'
 ```
 
 [Log-in](http://app.voucherify.io/?utm_source=github&utm_medium=sdk&utm_campaign=acq#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/?utm_source=github&utm_medium=sdk&utm_campaign=acq#/app/configuration):
@@ -797,6 +801,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2019-05-07 - 8.0.0 - Updated retrofit and rxjava to version >= 2.x. Dropped support for JDK 1.6 and 1.7
 * 2019-04-23 - 7.3.0 - Loyalties API, Rewards API.
 * 2019-03-21 - 7.2.0 - Added `ValidationRules assignments` property to `Voucher` and `Campaign` responses, added `Referral` to `CustomEvent`, updated `OrderResponse` object with new properties.
 * 2019-02-01 - 7.1.3 - Fixed deserialisation of `CampaignResponse` for newest API version.

@@ -14,6 +14,6 @@ import java.util.List;
 @ToString
 public class BusinessValidationRuleList {
 
-  private List<BusinessValidationRule> data;
+    private List<BusinessValidationRule> data;
 
 }

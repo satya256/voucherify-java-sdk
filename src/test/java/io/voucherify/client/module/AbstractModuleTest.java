@@ -2,87 +2,92 @@ package io.voucherify.client.module;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.squareup.okhttp.mockwebserver.MockResponse;
-import com.squareup.okhttp.mockwebserver.MockWebServer;
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
+import io.voucherify.client.LogLevel;
 import io.voucherify.client.VoucherifyClient;
 import io.voucherify.client.callback.VoucherifyCallback;
+import io.voucherify.client.error.VoucherifyError;
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.MockWebServer;
+import okhttp3.mockwebserver.RecordedRequest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import retrofit.RestAdapter;
 
 import java.io.IOException;
 import java.util.concurrent.Callable;
 
 public class AbstractModuleTest {
 
-  protected ObjectMapper mapper = new ObjectMapper();
-  protected static VoucherifyClient client;
-  private static MockWebServer server;
-  private boolean[] callbackFired = new boolean[]{false};
+    protected static VoucherifyClient client;
+    private static MockWebServer server;
+    protected ObjectMapper mapper = new ObjectMapper();
+    private boolean[] callbackFired = new boolean[] {false};
 
-  @BeforeClass
-  public static void onSetup() throws IOException {
-    server = new MockWebServer();
-    server.play();
-    client = new VoucherifyClient.Builder()
-            .setClientSecretKey("some token")
-            .setAppId("some app id")
-            .setLogLevel(RestAdapter.LogLevel.FULL)
-            .withoutSSL()
-            .setEndpoint(server.getUrl("/").toString().replaceFirst("http://", ""))
-            .build();
-  }
+    @BeforeClass
+    public static void onSetup() throws IOException {
+        server = new MockWebServer();
+        server.start();
 
-  protected void enqueueResponse(Object body) {
-    try {
-      server.enqueue(new MockResponse().setBody(mapper.writeValueAsString(body)).setResponseCode(200));
-    } catch (JsonProcessingException ignore) {}
-  }
-
-  protected void enqueueResponse(String body) {
-    server.enqueue(new MockResponse().setBody(body).setResponseCode(200));
-  }
-
-  void enqueueEmptyResponse() {
-    server.enqueue(new MockResponse().setResponseCode(204));
-  }
-
-  RecordedRequest getRequest() {
-    try {
-      return server.takeRequest();
-    } catch (InterruptedException e) {
-      return null;
+        client =
+                new VoucherifyClient.Builder()
+                        .setClientSecretKey("some token")
+                        .setAppId("some app id")
+                        .setLogLevel(LogLevel.BODY)
+                        .withoutSSL()
+                        .setEndpoint(server.url("").toString().replaceFirst("http://", ""))
+                        .build();
     }
-  }
 
-  VoucherifyCallback createCallback() {
-    return new VoucherifyCallback<Object>() {
-      @Override
-      public void onSuccess(Object result) {
-        callbackFired[0] = true;
-      }
-    };
-  }
+    @AfterClass
+    public static void onTeardown() throws IOException {
+        server.shutdown();
+    }
 
-  Callable<Boolean> wasCallbackFired() {
-    return new Callable<Boolean>() {
-      @Override
-      public Boolean call() throws Exception {
-        return callbackFired[0];
-      }
-    };
-  }
+    protected void enqueueResponse(Object body) {
+        try {
+            server.enqueue(
+                    new MockResponse().setBody(mapper.writeValueAsString(body)).setResponseCode(200));
+        } catch (JsonProcessingException ignore) {
+        }
+    }
 
-  @After
-  public void afterEach() {
-    callbackFired[0] = false;
-  }
+    protected void enqueueResponse(String body) {
+        server.enqueue(new MockResponse().setBody(body).setResponseCode(200));
+    }
 
-  @AfterClass
-  public static void onTeardown() throws IOException {
-    server.shutdown();
-  }
+    void enqueueEmptyResponse() {
+        server.enqueue(new MockResponse().setResponseCode(204));
+    }
 
+    RecordedRequest getRequest() {
+        try {
+            return server.takeRequest();
+        } catch (InterruptedException e) {
+            return null;
+        }
+    }
+
+    VoucherifyCallback createCallback() {
+        return new VoucherifyCallback<Object>() {
+
+            @Override
+            public void onSuccess(Object result) {
+                callbackFired[0] = true;
+            }
+
+            @Override
+            public void onFailure(VoucherifyError error) {
+                System.out.println(error);
+            }
+        };
+    }
+
+    Callable<Boolean> wasCallbackFired() {
+        return () -> callbackFired[0];
+    }
+
+    @After
+    public void afterEach() {
+        callbackFired[0] = false;
+    }
 }

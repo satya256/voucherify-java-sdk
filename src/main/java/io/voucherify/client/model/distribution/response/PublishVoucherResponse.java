@@ -25,60 +25,60 @@ import java.util.Map;
 @ToString
 public class PublishVoucherResponse {
 
-  private String code;
+    private String code;
 
-  private String campaign;
+    private String campaign;
 
-  private String category;
+    private String category;
 
-  private VoucherType type;
+    private VoucherType type;
 
-  private Discount discount;
+    private Discount discount;
 
-  private Gift gift;
+    private Gift gift;
 
-  @JsonProperty("start_date")
-  private Date startDate;
+    @JsonProperty("start_date")
+    private Date startDate;
 
-  @JsonProperty("expiration_date")
-  private Date expirationDate;
+    @JsonProperty("expiration_date")
+    private Date expirationDate;
 
-  private VoucherPublishResponse publish;
+    private VoucherPublishResponse publish;
 
-  private VoucherRedemptionResponse redemption;
+    private VoucherRedemptionResponse redemption;
 
-  private Boolean active;
+    private Boolean active;
 
-  @JsonProperty("additional_info")
-  private String additionalInfo;
+    @JsonProperty("additional_info")
+    private String additionalInfo;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 
-  @Singular("asset")
-  private Map<String, Object> assets;
+    @Singular("asset")
+    private Map<String, Object> assets;
 
-  @JsonProperty("is_referral_code")
-  private Boolean isReferralCode;
+    @JsonProperty("is_referral_code")
+    private Boolean isReferralCode;
 
-  @JsonProperty("referrer_id")
-  private String referrerId;
+    @JsonProperty("referrer_id")
+    private String referrerId;
 
-  @JsonProperty("updated_at")
-  private Date updatedAt;
+    @JsonProperty("updated_at")
+    private Date updatedAt;
 
-  private String id;
+    private String id;
 
-  private String object;
+    private String object;
 
-  @JsonProperty("created_at")
-  private Date createdAt;
+    @JsonProperty("created_at")
+    private Date createdAt;
 
-  @JsonProperty("customer_id")
-  private String customerId;
+    @JsonProperty("customer_id")
+    private String customerId;
 
-  @JsonProperty("tracking_id")
-  private String trackingId;
+    @JsonProperty("tracking_id")
+    private String trackingId;
 
-  private VoucherResponse voucher;
+    private VoucherResponse voucher;
 }

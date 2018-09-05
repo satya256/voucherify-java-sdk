@@ -14,8 +14,7 @@ import lombok.ToString;
 @ToString
 public class Gift {
 
-  private Integer amount;
+    private Integer amount;
 
-  private Integer balance;
-
+    private Integer balance;
 }

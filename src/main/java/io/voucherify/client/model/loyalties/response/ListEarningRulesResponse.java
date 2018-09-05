@@ -1,7 +1,6 @@
 package io.voucherify.client.model.loyalties.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.voucherify.client.model.rewards.response.RewardAssignmentResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

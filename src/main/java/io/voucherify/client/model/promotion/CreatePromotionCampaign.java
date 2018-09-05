@@ -7,11 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
 import lombok.ToString;
 
 import java.util.Date;
-import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -20,16 +18,16 @@ import java.util.List;
 @ToString
 public class CreatePromotionCampaign {
 
-  private String name;
+    private String name;
 
-  @JsonProperty("campaign_type")
-  private CampaignType campaignType;
+    @JsonProperty("campaign_type")
+    private CampaignType campaignType;
 
-  @JsonProperty("start_date")
-  private Date startDate;
+    @JsonProperty("start_date")
+    private Date startDate;
 
-  @JsonProperty("expiration_date")
-  private Date expirationDate;
+    @JsonProperty("expiration_date")
+    private Date expirationDate;
 
-  private Promotion promotion;
+    private Promotion promotion;
 }

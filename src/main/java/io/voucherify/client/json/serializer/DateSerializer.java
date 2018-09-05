@@ -12,24 +12,25 @@ import java.util.Date;
 
 public class DateSerializer extends JsonSerializer<Date> {
 
-  private final DateFormat df;
+    private final DateFormat df;
 
-  public DateSerializer(String dateFormat) {
-    this.df = createDateFormat(dateFormat);
-  }
-
-  private DateFormat createDateFormat(String dateFormat) {
-    try {
-      return new SimpleDateFormat(dateFormat);
-    } catch (Exception e) {
-      throw VoucherifyError.from("Invalid date format: " + dateFormat);
+    public DateSerializer(String dateFormat) {
+        this.df = createDateFormat(dateFormat);
     }
-  }
 
-  @Override
-  public void serialize(Date value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-    if (value != null) {
-      gen.writeString(df.format(value));
+    private DateFormat createDateFormat(String dateFormat) {
+        try {
+            return new SimpleDateFormat(dateFormat);
+        } catch (Exception e) {
+            throw VoucherifyError.from("Invalid date format: " + dateFormat);
+        }
     }
-  }
+
+    @Override
+    public void serialize(Date value, JsonGenerator gen, SerializerProvider serializers)
+            throws IOException {
+        if (value != null) {
+            gen.writeString(df.format(value));
+        }
+    }
 }

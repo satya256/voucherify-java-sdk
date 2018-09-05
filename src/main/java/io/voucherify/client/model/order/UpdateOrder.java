@@ -19,15 +19,15 @@ import java.util.Map;
 @ToString
 public class UpdateOrder {
 
-  private Customer customer;
+    private Customer customer;
 
-  private Integer amount;
+    private Integer amount;
 
-  private OrderStatus orderStatus;
+    private OrderStatus orderStatus;
 
-  @Singular("item")
-  private List<OrderItem> items;
+    @Singular("item")
+    private List<OrderItem> items;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

@@ -7,8 +7,8 @@ import java.util.List;
 
 public class ImportVouchersSerializer extends AbstractListSerializer<ImportVouchers, Voucher> {
 
-  @Override
-  protected List<Voucher> getList(ImportVouchers value) {
-    return value.getVouchers();
-  }
+    @Override
+    protected List<Voucher> getList(ImportVouchers value) {
+        return value.getVouchers();
+    }
 }

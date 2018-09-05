@@ -15,33 +15,33 @@ import java.util.Map;
 @ToString
 public class OrderItemResponse {
 
-  @JsonProperty("product_id")
-  private String productId;
+    @JsonProperty("product_id")
+    private String productId;
 
-  @JsonProperty("sku_id")
-  private String skuId;
+    @JsonProperty("sku_id")
+    private String skuId;
 
-  private Integer quantity;
+    private Integer quantity;
 
-  private Integer price;
+    private Integer price;
 
-  @JsonProperty("discount_amount")
-  private Integer discountAmount;
+    @JsonProperty("discount_amount")
+    private Integer discountAmount;
 
-  private Integer amount;
+    private Integer amount;
 
-  @JsonProperty("related_object")
-  private String relatedObject;
+    @JsonProperty("related_object")
+    private String relatedObject;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
-  @JsonProperty("product")
-  private OrderItemProductResponse orderItemProduct;
+    @JsonProperty("product")
+    private OrderItemProductResponse orderItemProduct;
 
-  @JsonProperty("sku")
-  private OrderItemSKUResponse orderItemSku;
+    @JsonProperty("sku")
+    private OrderItemSKUResponse orderItemSku;
 
-  private Map<String, Object> metadata;
+    private Map<String, Object> metadata;
 
 }

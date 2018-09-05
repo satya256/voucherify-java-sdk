@@ -18,9 +18,9 @@ import java.util.Map;
 @ToString
 public class ExportParams {
 
-  @Singular("field")
-  private List<String> fields;
+    @Singular("field")
+    private List<String> fields;
 
-  @Singular("filter")
-  private Map<String, Object> filters;
+    @Singular("filter")
+    private Map<String, Object> filters;
 }

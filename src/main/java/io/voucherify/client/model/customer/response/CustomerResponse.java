@@ -20,42 +20,41 @@ import java.util.Map;
 @ToString
 public class CustomerResponse {
 
-  private String id;
+    private String id;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
-  private String name;
+    private String name;
 
-  private String email;
+    private String email;
 
-  private String description;
+    private String description;
 
-  private Address address;
+    private Address address;
 
-  private String phone;
+    private String phone;
 
-  private String birthday;
+    private String birthday;
 
-  private CustomerSummary summary;
+    private CustomerSummary summary;
 
-  private CustomerLoyalty loyalty;
+    private CustomerLoyalty loyalty;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 
-  @JsonProperty("system_metadata")
-  private Map<String, Object> systemMetadata;
+    @JsonProperty("system_metadata")
+    private Map<String, Object> systemMetadata;
 
-  @JsonProperty("created_at")
-  private Date createdAt;
+    @JsonProperty("created_at")
+    private Date createdAt;
 
-  @JsonProperty("updated_at")
-  private Date updatedAt;
+    @JsonProperty("updated_at")
+    private Date updatedAt;
 
-  @JsonProperty("email_unsubscribed")
-  private Boolean emailUnsubscribed;
+    @JsonProperty("email_unsubscribed")
+    private Boolean emailUnsubscribed;
 
-  private String object;
-
+    private String object;
 }

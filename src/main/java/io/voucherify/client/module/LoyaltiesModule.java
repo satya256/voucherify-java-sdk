@@ -1,5 +1,6 @@
 package io.voucherify.client.module;
 
+import io.reactivex.Observable;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.campaign.CampaignsFilter;
@@ -29,7 +30,6 @@ import io.voucherify.client.model.voucher.response.VouchersResponse;
 import io.voucherify.client.module.LoyaltiesModule.ExtAsync;
 import io.voucherify.client.module.LoyaltiesModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
-import rx.Observable;
 
 import java.util.HashMap;
 import java.util.List;
@@ -42,75 +42,75 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     public CampaignsResponse list(CampaignsFilter filter) {
-        return api.listLoyaltyCampaigns(filter != null ? filter.asMap() : new HashMap<String, Object>());
+        return executeSyncApiCall(api.listLoyaltyCampaigns(filter != null ? filter.asMap() : new HashMap<>()));
     }
 
     public CampaignResponse create(CreateCampaign createCampaign) {
-        return api.createLoyaltyCampaign(createCampaign);
+        return executeSyncApiCall(api.createLoyaltyCampaign(createCampaign));
     }
 
     public CampaignResponse update(String id, UpdateCampaign updateCampaign) {
-        return api.updateLoyaltyCampaign(id, updateCampaign);
+        return executeSyncApiCall(api.updateLoyaltyCampaign(id, updateCampaign));
     }
 
     public CampaignResponse get(String id) {
-        return api.getLoyaltyCampaign(id);
+        return executeSyncApiCall(api.getLoyaltyCampaign(id));
     }
 
     public void delete(String id, DeleteCampaignParams params) {
-        api.deleteLoyaltyCampaign(id, params != null ? params.asMap() : new HashMap<String, Object>());
+        executeSyncApiCall(api.deleteLoyaltyCampaign(id, params != null ? params.asMap() : new HashMap<>()));
     }
 
     public ListRewardAssignmentsResponse listRewardAssignments(String id, RewardsAssignmentsFilter filter) {
-        return api.listLoyaltyRewardAssignments(id, filter != null ? filter.asMap() : new HashMap<String, Object>());
+        return executeSyncApiCall(api.listLoyaltyRewardAssignments(id, filter != null ? filter.asMap() : new HashMap<>()));
     }
 
     public RewardAssignmentResponse createRewardAssignment(String id, List<CreateRewardAssignment> assignments) {
-        return api.createLoyaltyRewardAssignment(id, assignments);
+        return executeSyncApiCall(api.createLoyaltyRewardAssignment(id, assignments));
     }
 
     public RewardAssignmentResponse updateRewardAssignment(String id, String assignmentId, UpdateRewardAssignment updateRewardAssignment) {
-        return api.updateLoyaltyRewardAssignment(id, assignmentId, updateRewardAssignment);
+        return executeSyncApiCall(api.updateLoyaltyRewardAssignment(id, assignmentId, updateRewardAssignment));
     }
 
     public void deleteRewardAssignment(String id, String assignmentId) {
-        api.deleteLoyaltyRewardAssignment(id, assignmentId);
+        executeSyncApiCall(api.deleteLoyaltyRewardAssignment(id, assignmentId));
     }
 
     public ListEarningRulesResponse listEarningRules(String id, EarningRulesFilter filter) {
-        return api.listLoyaltyEarningRules(id, filter != null ? filter.asMap() : new HashMap<String, Object>());
+        return executeSyncApiCall(api.listLoyaltyEarningRules(id, filter != null ? filter.asMap() : new HashMap<>()));
     }
 
     public EarningRuleResponse createEarningRules(String id, List<CreateEarningRule> rules) {
-        return api.createLoyaltyEarningRule(id, rules);
+        return executeSyncApiCall(api.createLoyaltyEarningRule(id, rules));
     }
 
     public EarningRuleResponse updateEarningRule(String id, String ruleId, UpdateEarningRule update) {
-        return api.updateLoyaltyEarningRule(id, ruleId, update);
+        return executeSyncApiCall(api.updateLoyaltyEarningRule(id, ruleId, update));
     }
 
     public void deleteEarningRule(String id, String ruleId) {
-        api.deleteLoyaltyEarningRule(id, ruleId);
+        executeSyncApiCall(api.deleteLoyaltyEarningRule(id, ruleId));
     }
 
     public VouchersResponse listMembers(String id, MembersFilter filter) {
-        return api.listLoyaltyMembers(id, filter != null ? filter.asMap() : new HashMap<String, Object>());
+        return executeSyncApiCall(api.listLoyaltyMembers(id, filter != null ? filter.asMap() : new HashMap<>()));
     }
 
-    public VoucherResponse addMember (String id, AddMember addMember) {
-        return api.addLoyaltyMember(id, addMember);
+    public VoucherResponse addMember(String id, AddMember addMember) {
+        return executeSyncApiCall(api.addLoyaltyMember(id, addMember));
     }
 
-    public VoucherResponse getMember (String id, String memberId) {
-        return api.getLoyaltyMember(id, memberId);
+    public VoucherResponse getMember(String id, String memberId) {
+        return executeSyncApiCall(api.getLoyaltyMember(id, memberId));
     }
 
     public RedeemVoucherResponse redeemReward(String id, String memberId, RedeemReward redeemReward) {
-        return api.redeemLoyaltyReward(id, memberId, redeemReward);
+        return executeSyncApiCall(api.redeemLoyaltyReward(id, memberId, redeemReward));
     }
 
     public AddBalanceResponse addLoyaltyCardBalance(String id, String memberId, AddBalance addBalance) {
-        return api.addLoyaltyBalance(id, memberId, addBalance);
+        return executeSyncApiCall(api.addLoyaltyBalance(id, memberId, addBalance));
     }
 
     @Override
@@ -265,7 +265,7 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
             });
         }
 
-        public Observable<RewardAssignmentResponse> updateRewardAssignment(final String id, final String assignmentId,  final UpdateRewardAssignment updateRewardAssignment) {
+        public Observable<RewardAssignmentResponse> updateRewardAssignment(final String id, final String assignmentId, final UpdateRewardAssignment updateRewardAssignment) {
             return RxUtils.defer(new RxUtils.DefFunc<RewardAssignmentResponse>() {
                 @Override
                 public RewardAssignmentResponse method() {
@@ -302,7 +302,7 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
             });
         }
 
-        public Observable<EarningRuleResponse> updateEarningRule(final String id, final String ruleId,  final UpdateEarningRule update) {
+        public Observable<EarningRuleResponse> updateEarningRule(final String id, final String ruleId, final UpdateEarningRule update) {
             return RxUtils.defer(new RxUtils.DefFunc<EarningRuleResponse>() {
                 @Override
                 public EarningRuleResponse method() {

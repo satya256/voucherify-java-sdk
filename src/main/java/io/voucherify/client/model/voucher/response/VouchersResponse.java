@@ -15,20 +15,21 @@ import java.util.List;
 @ToString
 public class VouchersResponse {
 
-  private String object;
+    private String object;
 
-  private Integer total;
+    private Integer total;
 
-  @JsonProperty("data_ref")
-  private String dataRef;
+    @JsonProperty("data_ref")
+    private String dataRef;
 
-  private List<VoucherResponse> vouchers;
+    private List<VoucherResponse> vouchers;
 
-  public static VouchersResponse of(String object, Integer total, String dataRef, List<VoucherResponse> vouchers) {
-    return new VouchersResponse(object, total, dataRef, vouchers);
-  }
+    public static VouchersResponse of(
+            String object, Integer total, String dataRef, List<VoucherResponse> vouchers) {
+        return new VouchersResponse(object, total, dataRef, vouchers);
+    }
 
-  public static VouchersResponse of(List<VoucherResponse> vouchers) {
-    return new VouchersResponse(null, null, null, vouchers);
-  }
+    public static VouchersResponse of(List<VoucherResponse> vouchers) {
+        return new VouchersResponse(null, null, null, vouchers);
+    }
 }

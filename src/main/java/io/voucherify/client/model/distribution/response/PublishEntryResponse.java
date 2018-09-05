@@ -16,16 +16,15 @@ import java.util.Map;
 @ToString
 public class PublishEntryResponse {
 
-  @JsonProperty("customer_id")
-  private String customerId;
+    @JsonProperty("customer_id")
+    private String customerId;
 
-  private String customer;
+    private String customer;
 
-  private String channel;
+    private String channel;
 
-  @JsonProperty("published_at")
-  private Date publishedAt;
+    @JsonProperty("published_at")
+    private Date publishedAt;
 
-  private Map<String, Object> metadata;
-
+    private Map<String, Object> metadata;
 }

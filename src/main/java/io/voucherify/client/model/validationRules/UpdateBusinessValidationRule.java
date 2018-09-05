@@ -16,10 +16,10 @@ import lombok.ToString;
 @ToString
 public class UpdateBusinessValidationRule {
 
-  private String id;
+    private String id;
 
-  private String name;
+    private String name;
 
-  @Builder.Default
-  private Json rules = Json.builder().build();
+    @Builder.Default
+    private Json rules = Json.builder().build();
 }

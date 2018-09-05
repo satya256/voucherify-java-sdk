@@ -15,35 +15,34 @@ import java.util.List;
 
 public class DateDeserializer extends JsonDeserializer<Date> {
 
-  private final List<DateFormat> dateFormats = new ArrayList<DateFormat>();
+    private final List<DateFormat> dateFormats = new ArrayList<DateFormat>();
 
-  public DateDeserializer(String... dateFormats) {
-    for (String df : dateFormats) {
-      this.dateFormats.add(new SimpleDateFormat(df));
-    }
-  }
-
-  @Override
-  public Date deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException {
-    if (jsonParser != null) {
-      return parseDate(jsonParser.getText());
-    }
-    return null;
-  }
-
-  private Date parseDate(String str) {
-    if (dateFormats.isEmpty()) {
-      throw VoucherifyError.from("No date format provided");
+    public DateDeserializer(String... dateFormats) {
+        for (String df : dateFormats) {
+            this.dateFormats.add(new SimpleDateFormat(df));
+        }
     }
 
-    for (DateFormat df : dateFormats) {
-      try {
-        return df.parse(str);
-      } catch (ParseException e) {
-        // ignore and check next
-      }
+    @Override
+    public Date deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException {
+        if (jsonParser != null) {
+            return parseDate(jsonParser.getText());
+        }
+        return null;
     }
-    throw VoucherifyError.from("Invalid date format: " + str);
-  }
 
+    private Date parseDate(String str) {
+        if (dateFormats.isEmpty()) {
+            throw VoucherifyError.from("No date format provided");
+        }
+
+        for (DateFormat df : dateFormats) {
+            try {
+                return df.parse(str);
+            } catch (ParseException e) {
+                // ignore and check next
+            }
+        }
+        throw VoucherifyError.from("Invalid date format: " + str);
+    }
 }

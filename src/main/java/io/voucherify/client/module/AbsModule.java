@@ -1,39 +1,53 @@
 package io.voucherify.client.module;
 
 import io.voucherify.client.api.VoucherifyApi;
+import io.voucherify.client.error.VoucherifyErrorHandler;
 import io.voucherify.client.module.AbsModule.Async;
 import io.voucherify.client.module.AbsModule.Rx;
+import retrofit2.Call;
 
+import java.io.IOException;
 import java.util.concurrent.Executor;
 
 abstract class AbsModule<A extends Async, R extends Rx> {
 
-  final Executor executor;
+    final Executor executor;
 
-  final VoucherifyApi api;
+    final VoucherifyApi api;
 
-  final A extAsync;
+    final A extAsync;
 
-  final R extRxJava;
+    final R extRxJava;
 
-  AbsModule(VoucherifyApi api, Executor executor) {
-    this.api = api;
-    this.executor = executor;
+    private final VoucherifyErrorHandler errorHandler = new VoucherifyErrorHandler();
 
-    this.extAsync = createAsyncExtension();
-    this.extRxJava = createRxJavaExtension();
-  }
+    AbsModule(VoucherifyApi api, Executor executor) {
+        this.api = api;
+        this.executor = executor;
 
-  abstract A createAsyncExtension();
+        this.extAsync = createAsyncExtension();
+        this.extRxJava = createRxJavaExtension();
+    }
 
-  abstract R createRxJavaExtension();
+    protected <T> T executeSyncApiCall(Call<T> call) {
+        try {
+            return call.execute().body();
+        } catch (IOException e) {
+            throw errorHandler.from(e);
+        }
+    }
 
-  public abstract A async();
+    abstract A createAsyncExtension();
 
-  public abstract R rx();
+    abstract R createRxJavaExtension();
 
-  public static class Rx {}
+    public abstract A async();
 
-  public static class Async {}
+    public abstract R rx();
 
+    public static class Rx {
+    }
+
+    public static class Async {
+    }
 }

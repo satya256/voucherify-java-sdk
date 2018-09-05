@@ -1,4 +1,4 @@
-package io.voucherify.client.model.promotion.reponse;
+package io.voucherify.client.model.promotion.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
@@ -18,24 +18,23 @@ import java.util.Map;
 @ToString
 public class TierResponse {
 
-  private String id;
+    private String id;
 
-  private String object;
+    private String object;
 
-  private String name;
+    private String name;
 
-  private String banner;
+    private String banner;
 
-  private CampaignResponse campaign;
+    private CampaignResponse campaign;
 
-  private Map<String, Object> action;
+    private Map<String, Object> action;
 
-  private TierSummary summary;
+    private TierSummary summary;
 
-  @JsonProperty("validation_rule_assignments")
-  private BusinessValidationRuleAssignmentList assignments;
+    @JsonProperty("validation_rule_assignments")
+    private BusinessValidationRuleAssignmentList assignments;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
-
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

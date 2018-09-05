@@ -1,13 +1,13 @@
 package io.voucherify.client.model.redemption.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.order.response.OrderResponse;
+import io.voucherify.client.model.redemption.RedemptionStatus;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import io.voucherify.client.model.order.response.OrderResponse;
-import io.voucherify.client.model.redemption.RedemptionStatus;
 
 import java.util.Date;
 import java.util.Map;
@@ -18,33 +18,33 @@ import java.util.Map;
 @ToString
 public class RedemptionEntryResponse {
 
-  private String id;
+    private String id;
 
-  private String object;
+    private String object;
 
-  private Date date;
+    private Date date;
 
-  @JsonProperty("customer_id")
-  private String customerId;
+    @JsonProperty("customer_id")
+    private String customerId;
 
-  @JsonProperty("tracking_id")
-  private String trackingId;
+    @JsonProperty("tracking_id")
+    private String trackingId;
 
-  private String redemption;
+    private String redemption;
 
-  private String reason;
+    private String reason;
 
-  private Integer amount;
+    private Integer amount;
 
-  private OrderResponse order;
+    private OrderResponse order;
 
-  private Map<String, Object> metadata;
+    private Map<String, Object> metadata;
 
-  private RedemptionStatus result;
+    private RedemptionStatus result;
 
-  @JsonProperty("failure_code")
-  private String failureCode;
+    @JsonProperty("failure_code")
+    private String failureCode;
 
-  @JsonProperty("failure_message")
-  private String failureMessage;
+    @JsonProperty("failure_message")
+    private String failureMessage;
 }

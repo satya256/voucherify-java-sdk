@@ -14,10 +14,10 @@ import java.util.List;
 @ToString
 public class ApplicableToResponse {
 
-  private String object;
+    private String object;
 
-  private Integer total;
+    private Integer total;
 
-  private List<DataEntryResponse> data;
+    private List<DataEntryResponse> data;
 
 }

@@ -17,16 +17,15 @@ import java.util.List;
 @ToString
 public class VoucherRedemptionResponse {
 
-  private Integer quantity;
+    private Integer quantity;
 
-  @JsonProperty("redeemed_quantity")
-  private Integer redeemedQuantity;
+    @JsonProperty("redeemed_quantity")
+    private Integer redeemedQuantity;
 
-  @JsonProperty("redeemed_amount")
-  private Integer redeemedAmount;
+    @JsonProperty("redeemed_amount")
+    private Integer redeemedAmount;
 
-  @JsonProperty("redemption_entries")
-  @Singular("redemptionEntry")
-  private List<RedemptionEntryResponse> redemptionEntries;
-
+    @JsonProperty("redemption_entries")
+    @Singular("redemptionEntry")
+    private List<RedemptionEntryResponse> redemptionEntries;
 }

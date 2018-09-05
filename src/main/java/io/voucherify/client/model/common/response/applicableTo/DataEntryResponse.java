@@ -13,11 +13,11 @@ import lombok.ToString;
 @ToString
 public class DataEntryResponse {
 
-  private String object;
+    private String object;
 
-  private String id;
+    private String id;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
 }

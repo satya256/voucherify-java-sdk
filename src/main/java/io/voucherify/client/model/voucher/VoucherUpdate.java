@@ -20,22 +20,21 @@ import static lombok.AccessLevel.PRIVATE;
 @ToString
 public class VoucherUpdate {
 
-  private String category;
+    private String category;
 
-  @JsonProperty("start_date")
-  private Date startDate;
+    @JsonProperty("start_date")
+    private Date startDate;
 
-  @JsonProperty("expiration_date")
-  private Date expirationDate;
+    @JsonProperty("expiration_date")
+    private Date expirationDate;
 
-  private Boolean active;
+    private Boolean active;
 
-  @JsonProperty("additional_info")
-  private String additionalInfo;
+    @JsonProperty("additional_info")
+    private String additionalInfo;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 
-  private Gift gift;
-
+    private Gift gift;
 }

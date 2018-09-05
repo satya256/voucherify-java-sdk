@@ -1,20 +1,31 @@
 package io.voucherify.client.error;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
+@ToString
 class WrappedError {
 
-  private Integer code;
+    @JsonCreator
+    public WrappedError(
+            @JsonProperty("code") Integer code,
+            @JsonProperty("message") String message,
+            @JsonProperty("details") String details,
+            @JsonProperty("key") String key) {
+        this.code = code;
+        this.message = message;
+        this.details = details;
+        this.key = key;
+    }
 
-  private String details;
+    private Integer code;
 
-  private String key;
+    private String details;
 
-  private String message;
+    private String key;
+
+    private String message;
 }
-

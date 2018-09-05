@@ -20,22 +20,21 @@ import java.util.Map;
 @ToString
 public class CreateCampaign {
 
-  private String name;
+    private String name;
 
-  @JsonProperty("start_date")
-  private Date startDate;
+    @JsonProperty("start_date")
+    private Date startDate;
 
-  @JsonProperty("expiration_date")
-  private Date expirationDate;
+    @JsonProperty("expiration_date")
+    private Date expirationDate;
 
-  private CampaignType type;
+    private CampaignType type;
 
-  @JsonProperty("vouchers_count")
-  private Integer vouchersCount;
+    @JsonProperty("vouchers_count")
+    private Integer vouchersCount;
 
-  private Voucher voucher;
+    private Voucher voucher;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
-
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

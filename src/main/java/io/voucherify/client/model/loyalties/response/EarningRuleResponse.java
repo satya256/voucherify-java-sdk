@@ -2,9 +2,9 @@ package io.voucherify.client.model.loyalties.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.loyalties.CustomEvent;
+import io.voucherify.client.model.loyalties.Loyalty;
 import io.voucherify.client.model.loyalties.Segment;
 import io.voucherify.client.model.loyalties.Source;
-import io.voucherify.client.model.loyalties.Loyalty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

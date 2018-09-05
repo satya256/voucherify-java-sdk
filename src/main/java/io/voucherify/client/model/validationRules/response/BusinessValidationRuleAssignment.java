@@ -15,19 +15,19 @@ import java.util.Date;
 @ToString
 public class BusinessValidationRuleAssignment {
 
-  private String id;
+    private String id;
 
-  private String object;
+    private String object;
 
-  @JsonProperty("rule_id")
-  private String ruleId;
+    @JsonProperty("rule_id")
+    private String ruleId;
 
-  @JsonProperty("related_object_id")
-  private String relatedObjectId;
+    @JsonProperty("related_object_id")
+    private String relatedObjectId;
 
-  @JsonProperty("related_object_type")
-  private String relatedObjectType;
+    @JsonProperty("related_object_type")
+    private String relatedObjectType;
 
-  @JsonProperty("created_at")
-  private Date createdAt;
+    @JsonProperty("created_at")
+    private Date createdAt;
 }

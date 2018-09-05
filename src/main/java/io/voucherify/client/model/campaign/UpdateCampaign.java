@@ -19,16 +19,16 @@ import java.util.Map;
 @ToString
 public class UpdateCampaign {
 
-  @JsonProperty("start_date")
-  private Date startDate;
+    @JsonProperty("start_date")
+    private Date startDate;
 
-  @JsonProperty("expiration_date")
-  private Date expirationDate;
+    @JsonProperty("expiration_date")
+    private Date expirationDate;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 
-  private CampaignType type;
+    private CampaignType type;
 
-  private String description;
+    private String description;
 }

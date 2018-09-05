@@ -2,7 +2,7 @@ package io.voucherify.client.model.redemption.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.order.response.OrderResponse;
-import io.voucherify.client.model.promotion.reponse.TierResponse;
+import io.voucherify.client.model.promotion.response.TierResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

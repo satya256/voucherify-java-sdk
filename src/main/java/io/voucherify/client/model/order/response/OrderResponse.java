@@ -20,30 +20,29 @@ import java.util.Map;
 @ToString
 public class OrderResponse {
 
-  private String id;
+    private String id;
 
-  private String object;
+    private String object;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
-  @JsonProperty("created_at")
-  private Date createdAt;
+    @JsonProperty("created_at")
+    private Date createdAt;
 
-  @JsonProperty("updated_at")
-  private Date updatedAt;
+    @JsonProperty("updated_at")
+    private Date updatedAt;
 
-  private CustomerResponse customer;
+    private CustomerResponse customer;
 
-  @JsonProperty("result")
-  private OrderStatus status;
+    @JsonProperty("result")
+    private OrderStatus status;
 
-  private Integer amount;
+    private Integer amount;
 
-  private List<OrderItemResponse> items;
+    private List<OrderItemResponse> items;
 
-  private Map<String, Object> metadata;
+    private Map<String, Object> metadata;
 
-  private Referrer referrer;
-
+    private Referrer referrer;
 }

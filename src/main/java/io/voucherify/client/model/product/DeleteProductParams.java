@@ -18,12 +18,12 @@ import java.util.Map;
 @ToString
 public class DeleteProductParams extends AbstractParams<String, Object> {
 
-  private Boolean force;
+    private Boolean force;
 
-  @Override
-  public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<String, Object>();
-    map.put("force", force);
-    return map;
-  }
+    @Override
+    public Map<String, Object> asMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("force", force);
+        return map;
+    }
 }

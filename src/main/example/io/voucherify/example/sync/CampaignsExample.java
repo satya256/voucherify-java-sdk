@@ -14,30 +14,39 @@ import io.voucherify.client.model.voucher.VoucherType;
 
 public class CampaignsExample extends AbsExample {
 
-  public CampaignsExample(VoucherifyClient client) {
-    super(client);
-  }
+    public CampaignsExample(VoucherifyClient client) {
+        super(client);
+    }
 
-  public void example() {
-    Voucher campaignVoucher = Voucher.builder().active(false).type(VoucherType.DISCOUNT_VOUCHER).discount(Discount.amountOff(10)).build();
-    CreateCampaign createCampaign = CreateCampaign.builder().name("campaign-name").voucher(campaignVoucher).build();
+    public void example() {
+        Voucher campaignVoucher =
+                Voucher.builder()
+                        .active(false)
+                        .type(VoucherType.DISCOUNT_VOUCHER)
+                        .discount(Discount.amountOff(10))
+                        .build();
+        CreateCampaign createCampaign =
+                CreateCampaign.builder().name("campaign-name").voucher(campaignVoucher).build();
 
-    CampaignResponse response = client.campaigns().create(createCampaign);
+        CampaignResponse response = client.campaigns().create(createCampaign);
 
-    AddVoucherToCampaign addVoucherToCampaign = AddVoucherToCampaign.builder().category("new-category").build();
+        AddVoucherToCampaign addVoucherToCampaign =
+                AddVoucherToCampaign.builder().category("new-category").build();
 
-    client.campaigns().addVoucher(response.getName(), addVoucherToCampaign);
-    client.campaigns().addVoucherWithCode(response.getName(), "some-code1", addVoucherToCampaign);
+        client.campaigns().addVoucher(response.getName(), addVoucherToCampaign);
+        client.campaigns().addVoucherWithCode(response.getName(), "some-code1", addVoucherToCampaign);
 
-    CampaignImportVoucher campaignImportVoucher = CampaignImportVoucher.builder().active(false).code("test03").build();
-    CampaignImportVouchers importVouchers = CampaignImportVouchers.builder().voucher(campaignImportVoucher).build();
+        CampaignImportVoucher campaignImportVoucher =
+                CampaignImportVoucher.builder().active(false).code("test03").build();
+        CampaignImportVouchers importVouchers =
+                CampaignImportVouchers.builder().voucher(campaignImportVoucher).build();
 
-    client.campaigns().importVouchers(response.getName(), importVouchers);
+        client.campaigns().importVouchers(response.getName(), importVouchers);
 
-    client.campaigns().get("campaign-name");
+        client.campaigns().get("campaign-name");
 
-    client.campaigns().list(CampaignsFilter.builder().limit(10).page(1).build());
+        client.campaigns().list(CampaignsFilter.builder().limit(10).page(1).build());
 
-    client.campaigns().delete("campaign-name", DeleteCampaignParams.builder().force(true).build());
-  }
+        client.campaigns().delete("campaign-name", DeleteCampaignParams.builder().force(true).build());
+    }
 }

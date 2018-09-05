@@ -15,21 +15,21 @@ import java.util.List;
 @ToString
 public class VoucherRedemptionsResponse {
 
-  private String object;
+    private String object;
 
-  private Integer total;
+    private Integer total;
 
-  @JsonProperty("data_ref")
-  private String dataRef;
+    @JsonProperty("data_ref")
+    private String dataRef;
 
-  private Integer quantity;
+    private Integer quantity;
 
-  @JsonProperty("redeemed_quantity")
-  private Integer redeemedQuantity;
+    @JsonProperty("redeemed_quantity")
+    private Integer redeemedQuantity;
 
-  @JsonProperty("redeemed_amount")
-  private Integer redeemedAmount;
+    @JsonProperty("redeemed_amount")
+    private Integer redeemedAmount;
 
-  @JsonProperty("redemption_entries")
-  private List<RedemptionEntryResponse> redemptionEntries;
+    @JsonProperty("redemption_entries")
+    private List<RedemptionEntryResponse> redemptionEntries;
 }

@@ -18,24 +18,24 @@ import java.util.Map;
 @ToString
 public class CustomersFilter extends AbstractFilter<String, Object> {
 
-  private Integer limit;
+    private Integer limit;
 
-  private Integer page;
+    private Integer page;
 
-  private String email;
+    private String email;
 
-  private String city;
+    private String city;
 
-  private String name;
+    private String name;
 
-  @Override
-  public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<String, Object>();
-    map.put("limit", limit);
-    map.put("page", page);
-    map.put("email", email);
-    map.put("city", city);
-    map.put("name", name);
-    return map;
-  }
+    @Override
+    public Map<String, Object> getMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("limit", limit);
+        map.put("page", page);
+        map.put("email", email);
+        map.put("city", city);
+        map.put("name", name);
+        return map;
+    }
 }

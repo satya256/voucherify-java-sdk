@@ -16,15 +16,15 @@ import java.util.List;
 @ToString
 public class BusinessValidationRuleAssignmentList {
 
-  private List<BusinessValidationRuleAssignment> data;
+    private List<BusinessValidationRuleAssignment> data;
 
-  private Integer total;
+    private Integer total;
 
-  private String object;
+    private String object;
 
-  @JsonProperty("data_ref")
-  private String dataRef;
+    @JsonProperty("data_ref")
+    private String dataRef;
 
-  @JsonProperty("created_at")
-  private Date createdAt;
+    @JsonProperty("created_at")
+    private Date createdAt;
 }

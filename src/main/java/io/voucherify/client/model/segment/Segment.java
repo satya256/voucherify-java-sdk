@@ -18,16 +18,16 @@ import java.util.Map;
 @ToString
 public class Segment {
 
-  private String name;
+    private String name;
 
-  private SegmentType type;
+    private SegmentType type;
 
-  @Singular("customer")
-  private List<String> customers;
+    @Singular("customer")
+    private List<String> customers;
 
-  @Singular("filterEntry")
-  private Map<String, Object> filter;
+    @Singular("filterEntry")
+    private Map<String, Object> filter;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

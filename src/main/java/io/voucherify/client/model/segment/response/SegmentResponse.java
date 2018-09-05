@@ -17,20 +17,20 @@ import java.util.Map;
 @ToString
 public class SegmentResponse {
 
-  private String id;
+    private String id;
 
-  private String name;
+    private String name;
 
-  @JsonProperty("created_at")
-  private Date createdA;
+    @JsonProperty("created_at")
+    private Date createdA;
 
-  private Map<String, Object> metadata;
+    private Map<String, Object> metadata;
 
-  private Map<String, Object> filter;
+    private Map<String, Object> filter;
 
-  private List<String> customers;
+    private List<String> customers;
 
-  private String type;
+    private String type;
 
-  private String object;
+    private String object;
 }

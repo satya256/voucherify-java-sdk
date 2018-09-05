@@ -1,5 +1,6 @@
 package io.voucherify.client.module;
 
+import io.reactivex.Observable;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.customer.Customer;
@@ -8,150 +9,156 @@ import io.voucherify.client.model.customer.response.CustomerResponse;
 import io.voucherify.client.model.customer.response.CustomersResponse;
 import io.voucherify.client.module.CustomersModule.ExtAsync;
 import io.voucherify.client.module.CustomersModule.ExtRxJava;
+import io.voucherify.client.utils.Irrelevant;
 import io.voucherify.client.utils.RxUtils;
-import rx.Observable;
 
 import java.util.HashMap;
 import java.util.concurrent.Executor;
 
 public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
-  public CustomersModule(VoucherifyApi api, Executor executor) {
-    super(api, executor);
-  }
-
-  public CustomerResponse get(String customerId) {
-    return api.getCustomerById(customerId);
-  }
-
-  public CustomerResponse create(Customer customer) {
-    return api.createCustomer(customer);
-  }
-
-  public CustomerResponse update(Customer customer) {
-    return api.updateCustomer(customer.getId(), customer);
-  }
-
-  public void delete(String customerId) {
-    api.deleteCustomer(customerId);
-  }
-
-  public CustomersResponse list(CustomersFilter filter) {
-    return api.listCustomers(filter.asMap());
-  }
-
-  public CustomersResponse list() {
-    return api.listCustomers(new HashMap<String, Object>());
-  }
-
-  @Override
-  ExtAsync createAsyncExtension() {
-    return new ExtAsync();
-  }
-
-  @Override
-  ExtRxJava createRxJavaExtension() {
-    return new ExtRxJava();
-  }
-
-  @Override
-  public ExtAsync async() {
-    return extAsync;
-  }
-
-  @Override
-  public ExtRxJava rx() {
-    return extRxJava;
-  }
-
-  public class ExtAsync extends AbsModule.Async {
-
-    public void get(String customerId, VoucherifyCallback<CustomerResponse> callback) {
-      RxUtils.subscribe(executor, rx().get(customerId), callback);
+    public CustomersModule(VoucherifyApi api, Executor executor) {
+        super(api, executor);
     }
 
-    public void create(Customer customer, VoucherifyCallback<CustomerResponse> callback) {
-      RxUtils.subscribe(executor, rx().create(customer), callback);
+    public CustomerResponse get(String customerId) {
+        return executeSyncApiCall(api.getCustomerById(customerId));
     }
 
-    public void update(Customer customer, VoucherifyCallback<CustomerResponse> callback) {
-      RxUtils.subscribe(executor, rx().update(customer), callback);
+    public CustomerResponse create(Customer customer) {
+        return executeSyncApiCall(api.createCustomer(customer));
     }
 
-    public void delete(String customerId, VoucherifyCallback<Void> callback) {
-      RxUtils.subscribe(executor, rx().delete(customerId), callback);
+    public CustomerResponse update(Customer customer) {
+        return executeSyncApiCall(api.updateCustomer(customer.getId(), customer));
     }
 
-    public void list(CustomersFilter filter, VoucherifyCallback<CustomersResponse> callback) {
-      RxUtils.subscribe(executor, rx().list(filter), callback);
+    public void delete(String customerId) {
+        executeSyncApiCall(api.deleteCustomer(customerId));
     }
 
-    public void list(VoucherifyCallback<CustomersResponse> callback) {
-      RxUtils.subscribe(executor, rx().list(), callback);
+    public CustomersResponse list(CustomersFilter filter) {
+        return executeSyncApiCall(api.listCustomers(filter.asMap()));
     }
-  }
 
-  public class ExtRxJava extends AbsModule.Rx {
+    public CustomersResponse list() {
+        return executeSyncApiCall(api.listCustomers(new HashMap<>()));
+    }
 
-    public Observable<CustomerResponse> get(final String customerId) {
-      return RxUtils.defer(new RxUtils.DefFunc<CustomerResponse>() {
+    @Override
+    ExtAsync createAsyncExtension() {
+        return new ExtAsync();
+    }
 
-        @Override
-        public CustomerResponse method() {
-          return CustomersModule.this.get(customerId);
+    @Override
+    ExtRxJava createRxJavaExtension() {
+        return new ExtRxJava();
+    }
+
+    @Override
+    public ExtAsync async() {
+        return extAsync;
+    }
+
+    @Override
+    public ExtRxJava rx() {
+        return extRxJava;
+    }
+
+    public class ExtAsync extends AbsModule.Async {
+
+        public void get(String customerId, VoucherifyCallback<CustomerResponse> callback) {
+            RxUtils.subscribe(executor, rx().get(customerId), callback);
         }
-      });
-    }
 
-    public Observable<CustomerResponse> create(final Customer customer) {
-      return RxUtils.defer(new RxUtils.DefFunc<CustomerResponse>() {
-
-        @Override
-        public CustomerResponse method() {
-          return CustomersModule.this.create(customer);
+        public void create(Customer customer, VoucherifyCallback<CustomerResponse> callback) {
+            RxUtils.subscribe(executor, rx().create(customer), callback);
         }
-      });
-    }
 
-    public Observable<CustomerResponse> update(final Customer customer) {
-      return RxUtils.defer(new RxUtils.DefFunc<CustomerResponse>() {
-
-        @Override
-        public CustomerResponse method() {
-          return CustomersModule.this.update(customer);
+        public void update(Customer customer, VoucherifyCallback<CustomerResponse> callback) {
+            RxUtils.subscribe(executor, rx().update(customer), callback);
         }
-      });
-    }
 
-    public Observable<Void> delete(final String customerId) {
-      return RxUtils.defer(new RxUtils.DefFunc<Void>() {
-
-        @Override
-        public Void method() {
-          CustomersModule.this.delete(customerId);
-          return null;
+        public void delete(String customerId, VoucherifyCallback<Irrelevant> callback) {
+            RxUtils.subscribe(executor, rx().delete(customerId), callback);
         }
-      });
-    }
 
-    public Observable<CustomersResponse> list(final CustomersFilter filter) {
-      return RxUtils.defer(new RxUtils.DefFunc<CustomersResponse>() {
-
-        @Override
-        public CustomersResponse method() {
-          return CustomersModule.this.list(filter);
+        public void list(CustomersFilter filter, VoucherifyCallback<CustomersResponse> callback) {
+            RxUtils.subscribe(executor, rx().list(filter), callback);
         }
-      });
-    }
 
-    public Observable<CustomersResponse> list() {
-      return RxUtils.defer(new RxUtils.DefFunc<CustomersResponse>() {
-
-        @Override
-        public CustomersResponse method() {
-          return CustomersModule.this.list();
+        public void list(VoucherifyCallback<CustomersResponse> callback) {
+            RxUtils.subscribe(executor, rx().list(), callback);
         }
-      });
     }
-  }
+
+    public class ExtRxJava extends AbsModule.Rx {
+
+        public Observable<CustomerResponse> get(final String customerId) {
+            return RxUtils.defer(
+                    new RxUtils.DefFunc<CustomerResponse>() {
+
+                        @Override
+                        public CustomerResponse method() {
+                            return CustomersModule.this.get(customerId);
+                        }
+                    });
+        }
+
+        public Observable<CustomerResponse> create(final Customer customer) {
+            return RxUtils.defer(
+                    new RxUtils.DefFunc<CustomerResponse>() {
+
+                        @Override
+                        public CustomerResponse method() {
+                            return CustomersModule.this.create(customer);
+                        }
+                    });
+        }
+
+        public Observable<CustomerResponse> update(final Customer customer) {
+            return RxUtils.defer(
+                    new RxUtils.DefFunc<CustomerResponse>() {
+
+                        @Override
+                        public CustomerResponse method() {
+                            return CustomersModule.this.update(customer);
+                        }
+                    });
+        }
+
+        public Observable<Irrelevant> delete(final String customerId) {
+            return RxUtils.defer(
+                    new RxUtils.DefFunc<Irrelevant>() {
+
+                        @Override
+                        public Irrelevant method() {
+                            CustomersModule.this.delete(customerId);
+                            return Irrelevant.NO_RESPONSE;
+                        }
+                    });
+        }
+
+        public Observable<CustomersResponse> list(final CustomersFilter filter) {
+            return RxUtils.defer(
+                    new RxUtils.DefFunc<CustomersResponse>() {
+
+                        @Override
+                        public CustomersResponse method() {
+                            return CustomersModule.this.list(filter);
+                        }
+                    });
+        }
+
+        public Observable<CustomersResponse> list() {
+            return RxUtils.defer(
+                    new RxUtils.DefFunc<CustomersResponse>() {
+
+                        @Override
+                        public CustomersResponse method() {
+                            return CustomersModule.this.list();
+                        }
+                    });
+        }
+    }
 }

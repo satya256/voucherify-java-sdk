@@ -15,16 +15,16 @@ import lombok.ToString;
 @ToString
 public class VoucherOrder {
 
-  private SortingOrder order = SortingOrder.ASC;
+    private SortingOrder order = SortingOrder.ASC;
 
-  private String fieldName;
+    private String fieldName;
 
-  public String asQueryParam() {
-    if (this.order == null || this.fieldName == null) {
-      return "";
+    public String asQueryParam() {
+        if (this.order == null || this.fieldName == null) {
+            return "";
+        }
+
+        return this.order.getSorting() + this.fieldName.toLowerCase();
     }
-
-    return this.order.getSorting() + this.fieldName.toLowerCase();
-  }
 
 }

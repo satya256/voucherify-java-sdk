@@ -1,4 +1,4 @@
-package io.voucherify.client.model.validation;
+package io.voucherify.client.model.validation.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.common.response.applicableTo.ApplicableToResponse;
@@ -19,23 +19,23 @@ import java.util.Map;
 @ToString
 public class VoucherValidationResponse {
 
-  private String code;
+    private String code;
 
-  private boolean valid;
+    private boolean valid;
 
-  private Discount discount;
+    private Discount discount;
 
-  private Gift gift;
+    private Gift gift;
 
-  private OrderResponse order;
+    private OrderResponse order;
 
-  private String reason;
+    private String reason;
 
-  @JsonProperty("tracking_id")
-  private String trackingId;
+    @JsonProperty("tracking_id")
+    private String trackingId;
 
-  private Map<String, Object> metadata;
+    private Map<String, Object> metadata;
 
-  @JsonProperty("applicable_to")
-  private ApplicableToResponse applicableTo;
+    @JsonProperty("applicable_to")
+    private ApplicableToResponse applicableTo;
 }

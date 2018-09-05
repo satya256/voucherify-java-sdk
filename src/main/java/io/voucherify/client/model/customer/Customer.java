@@ -18,22 +18,21 @@ import java.util.Map;
 @ToString
 public class Customer {
 
-  private String id;
+    private String id;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @JsonProperty("source_id")
+    private String sourceId;
 
-  private String name;
+    private String name;
 
-  private String email;
+    private String email;
 
-  private String description;
+    private String description;
 
-  private Address address;
+    private Address address;
 
-  private String phone;
+    private String phone;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
-
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 }

@@ -23,55 +23,55 @@ import java.util.Map;
 @ToString
 public class VoucherResponse {
 
-  private String code;
+    private String code;
 
-  private String campaign;
+    private String campaign;
 
-  private String category;
+    private String category;
 
-  private VoucherType type;
+    private VoucherType type;
 
-  private Discount discount;
+    private Discount discount;
 
-  private Gift gift;
+    private Gift gift;
 
-  @JsonProperty("start_date")
-  private Date startDate;
+    @JsonProperty("start_date")
+    private Date startDate;
 
-  @JsonProperty("expiration_date")
-  private Date expirationDate;
+    @JsonProperty("expiration_date")
+    private Date expirationDate;
 
-  private VoucherPublishResponse publish;
+    private VoucherPublishResponse publish;
 
-  @JsonProperty("loyalty_card")
-  private LoyaltyCard loyaltyCard;
+    @JsonProperty("loyalty_card")
+    private LoyaltyCard loyaltyCard;
 
-  private VoucherRedemptionResponse redemption;
+    private VoucherRedemptionResponse redemption;
 
-  private Boolean active;
+    private Boolean active;
 
-  @JsonProperty("additional_info")
-  private String additionalInfo;
+    @JsonProperty("additional_info")
+    private String additionalInfo;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 
-  @Singular("asset")
-  private Map<String, Object> assets;
+    @Singular("asset")
+    private Map<String, Object> assets;
 
-  @JsonProperty("is_referral_code")
-  private Boolean isReferralCode;
+    @JsonProperty("is_referral_code")
+    private Boolean isReferralCode;
 
-  @JsonProperty("referrer_id")
-  private String referrerId;
+    @JsonProperty("referrer_id")
+    private String referrerId;
 
-  @JsonProperty("updated_at")
-  private Date updatedAt;
+    @JsonProperty("updated_at")
+    private Date updatedAt;
 
-  @JsonProperty("applicable_to")
-  private ApplicableToResponse applicableTo;
+    @JsonProperty("applicable_to")
+    private ApplicableToResponse applicableTo;
 
-  @JsonProperty("validation_rules_assignments")
-  private BusinessValidationRuleAssignmentList validationRuleAssignments;
+    @JsonProperty("validation_rules_assignments")
+    private BusinessValidationRuleAssignmentList validationRuleAssignments;
 
 }

@@ -15,11 +15,11 @@ import lombok.ToString;
 @ToString
 public class CreateBusinessValidationRuleAssignment {
 
-  private String campaign;
+    private String campaign;
 
-  private String voucher;
+    private String voucher;
 
-  @JsonProperty("promotion_tier")
-  private String promotionTier;
+    @JsonProperty("promotion_tier")
+    private String promotionTier;
 
 }

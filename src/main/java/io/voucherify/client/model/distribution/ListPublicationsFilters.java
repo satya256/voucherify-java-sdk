@@ -15,15 +15,25 @@ import lombok.ToString;
 @ToString
 public class ListPublicationsFilters {
 
-  private String fieldName;
+    private String fieldName;
 
-  private Operator operator;
+    private Operator operator;
 
-  private int index;
+    private int index;
 
-  private String value;
+    private String value;
 
-  public String buildFilterParam() {
-    return "filters" + "[" + fieldName + "]" + "[conditions]" + "[" + operator + "]" + "[" + index + "]";
-  }
+    public String buildFilterParam() {
+        return "filters"
+                + "["
+                + fieldName
+                + "]"
+                + "[conditions]"
+                + "["
+                + operator
+                + "]"
+                + "["
+                + index
+                + "]";
+    }
 }

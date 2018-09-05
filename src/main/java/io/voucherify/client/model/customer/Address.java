@@ -15,19 +15,18 @@ import lombok.ToString;
 @ToString
 public class Address {
 
-  private String city;
+    private String city;
 
-  private String state;
+    private String state;
 
-  @JsonProperty("line_1")
-  private String line1;
+    @JsonProperty("line_1")
+    private String line1;
 
-  @JsonProperty("line_2")
-  private String line2;
+    @JsonProperty("line_2")
+    private String line2;
 
-  private String country;
+    private String country;
 
-  @JsonProperty("postal_code")
-  private String postalCode;
-
+    @JsonProperty("postal_code")
+    private String postalCode;
 }

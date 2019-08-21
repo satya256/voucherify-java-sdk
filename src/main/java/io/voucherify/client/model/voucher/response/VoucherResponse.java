@@ -22,6 +22,8 @@ import java.util.Map;
 @Getter
 @ToString
 public class VoucherResponse {
+  
+  private String id;
 
   private String code;
 
